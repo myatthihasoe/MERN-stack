@@ -11,5 +11,6 @@ global.setTimeout(function() {
 global.setInterval(() => {
     console.log('Interval executed')
 }, 2000);
+console.log('Hello World')
 
 >>>>>>> f63851c (Ep-3-Global-Object)
