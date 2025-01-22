@@ -14,12 +14,17 @@ const server = http.createServer((req, res) => {
             filename = 'about.html';
             res.statusCode = 200;
             break;
-        
+
         case '/contact':
             filename = 'contact.html';
             res.statusCode = 200;
             break;
-    
+
+        case '/contact-us':
+            res.statusCode = 301;
+            res.setHeader('Location', './contact');
+            break;
+
         default:
             filename = '404.html';
             res.statusCode = 404;
@@ -38,6 +43,6 @@ const server = http.createServer((req, res) => {
     });
 });
 
-server.listen(3000,'localhost', () => {
+server.listen(3000, 'localhost', () => {
     console.log('Server listening on port 3000');
 });
