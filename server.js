@@ -1,11 +1,13 @@
 const http = require('http');
 const fs = require('fs');
-
+const _ = require('lodash');
+   
 const server = http.createServer((req, res) => {
     // console.log(req.url);
     let filename;
     switch (req.url) {
         case '/':
+            // console.log('Home page requested');
             filename = 'home.html';
             res.statusCode = 200;
             break;
@@ -21,7 +23,7 @@ const server = http.createServer((req, res) => {
             break;
 
         case '/contact-us':
-            res.statusCode = 301;
+            res.statusCode = 301; //redirect status code
             res.setHeader('Location', './contact');
             break;
 
@@ -46,3 +48,6 @@ const server = http.createServer((req, res) => {
 server.listen(3000, 'localhost', () => {
     console.log('Server listening on port 3000');
 });
+
+
+/*******terminal mhr "npm init -y" for package.json file mhr new dependencies  ******/
