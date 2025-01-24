@@ -6,8 +6,16 @@ app.set('views','./views') // set the views directory
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
 app.get('/', (req, res) => {
+    let blogs = [
+        {title : 'Blog 1', intro: 'This is the intro of blog 1'},
+        {title : 'Blog 2', intro: 'This is the intro of blog 2'},
+        {title : 'Blog 3', intro: 'This is the intro of blog 3'},
+    ];
+
     // res.sendFile('./views/home.html', { root: __dirname });
-    res.render('home');
+    res.render('home', {
+        blogs
+    });
 
 });
 
