@@ -2,17 +2,21 @@
 const express = require('express');
 
 const app = express();
+app.set('views','./views') // set the views directory
+app.set('view engine', 'ejs'); // set the view engine to ejs
 
 app.get('/', (req, res) => {
-    res.sendFile('./views/home.html', { root: __dirname });
+    // res.sendFile('./views/home.html', { root: __dirname });
+    res.render('home');
+
 });
 
 app.get('/about', (req, res) => {
-    res.sendFile('./views/about.html', { root: __dirname });
+    res.render('about');
 });
 
 app.get('/contact', (req, res) => {
-    res.sendFile('./views/contact.html', { root: __dirname });
+    res.render('contact');
 });
 
 app.get('/contact-us', (req, res) => {
@@ -21,7 +25,7 @@ app.get('/contact-us', (req, res) => {
 
 // 404 page middleware code
 app.use((req, res) => {
-    res.status(404).sendFile('./views/404.html', { root: __dirname });
+    res.status(404).render('404');
 })
 
 app.listen(3000, () => {
